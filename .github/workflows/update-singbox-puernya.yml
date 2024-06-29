@@ -136,12 +136,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: PuerNya/sing
-          ref: fix-interface
+          ref: building
           path: sing
-
-      - name: Replace sing
-        if: ${{ env.REPO == 'PuerNya/sing-box' }}
-        run: sed -i 's/^\/\/replace github.com.*$/replace github.com\/sagernet\/sing => .\/sing/' go.mod
 
       - name: Build core
         id: build
