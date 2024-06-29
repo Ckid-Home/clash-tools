@@ -151,7 +151,7 @@ jobs:
             sing-box*
           compression-level: 9
 
-  push_prerelease:
+  push_puernya:
     needs:
       - cross
       - sing-box
