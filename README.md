@@ -13,7 +13,7 @@
 - 2. 查看 CPU 架构可连接 SSH 后执行命令 `uname -ms`，若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构
 
 # 二、 使用方法
-## 1. 导入内核到 Linux 端（以 [ShellCrash](https://github.com/juewuy/ShellCrash) 导入内核为例）
+## 1. 导入内核（以 [ShellCrash](https://github.com/juewuy/ShellCrash) 导入内核为例）
 **mihomo 内核下载链接后缀和 CPU 架构对应关系如下表：**
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8&ARM64&AArch64|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|:---:|-----|-----|-----|
@@ -53,20 +53,7 @@ curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clas
 # sing-box 内核 PuerNya 版
 curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 ```
-## 2. 导入内核到 Windows 端（以 [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) 导入 mihomo 内核为例）
-以管理员身份打开 CMD 命令提示符，执行如下命令：
-```
-taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im Clash-Verge*
-taskkill /f /t /im clash-meta*
-# mihomo 内核 Meta 版
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64-compatible.exe
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
-# mihomo 内核 Alpha 版
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64-compatible.exe
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
-```
-## 3. 安装 Clash dashboard 面板（以 ShellCrash 安装 metacubexd 面板为例）
+## 2. 安装 Clash dashboard 面板（以 ShellCrash 安装 metacubexd 面板为例）
 **Clash dashboard 面板对应文件名和在线地址关系如下表：**
 |面板类型|文件名|在线地址|
 |-----|-----|-----|
@@ -80,7 +67,7 @@ curl -o "%PROGRAMFILES%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghpr
 ```
 curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz | tar -zx -C $CRASHDIR/ui/ && $CRASHDIR/start.sh restart
 ```
-## 4. 安装 AdGuardHome
+## 3. 安装 AdGuardHome
 **AdGuardHome CPU 架构和链接后缀对应关系如下表：**
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|-----|-----|-----|
@@ -107,8 +94,8 @@ curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.
 curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s restart
 ```
-# 三、 配置 ShellCrash 定时任务
-可以在 ShellCrash 里添加定时更新 mihomo 内核、sing-box 内核、metacubexd 面板和 AdGuardHome 的任务  
+# 三、 扩展（以 ShellCrash 配置定时任务为例）
+可在 ShellCrash 里添加定时更新 mihomo 内核、sing-box 内核、metacubexd 面板和 AdGuardHome 的任务
 1. 连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴如下内容：
 注：
 - 1. 留意链接后缀是否与 CPU 架构匹配
