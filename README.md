@@ -1,7 +1,3 @@
-# 更新（2024-07-14）：
-1. 紧急修复 sing-box Release 版和 Pre-release 版内核（添加组件 `with_gvisor,with_dhcp,with_wireguard,with_reality_server,with_utls,with_ech`）
-2. 同步 sing-box PuerNya 版内核（删除组件 `with_reality_server`）
-
 # 更新 [Clash Premium 内核](https://github.com/Dreamacro/clash/releases/tag/premium)、[mihomo 内核](https://github.com/MetaCubeX/mihomo)、[sing-box 内核](https://github.com/SagerNet/sing-box)、[sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)、[Clash](https://github.com/Dreamacro/clash) dashboard 面板和 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
 # 一、 说明
 每天凌晨（北京时间）自动构建生成：
