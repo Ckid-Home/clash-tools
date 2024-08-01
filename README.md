@@ -26,6 +26,7 @@
 
 <details>
 <summary>① 首次导入</summary>
+
 连接 SSH 后执行如下命令：
 ```
 # mihomo 内核 Meta 版
@@ -82,6 +83,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-das
 
 <details>
 <summary>① 安装 AdGuard Home</summary>
+
 连接 SSH 后执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
@@ -97,6 +99,7 @@ chmod +x /data/AdGuardHome/AdGuardHome
 
 <details>
 <summary>② 升级 AdGuard Home</summary>
+
 连接 SSH 后执行如下命令：
 ```
 # AdGuard Home Release 版
