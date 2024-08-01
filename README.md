@@ -1,12 +1,12 @@
-# 更新 [Clash Premium 内核](https://github.com/Dreamacro/clash/releases/tag/premium)、[mihomo 内核](https://github.com/MetaCubeX/mihomo)、[sing-box 内核](https://github.com/SagerNet/sing-box)、[sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)、[Clash](https://github.com/Dreamacro/clash) dashboard 面板和 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
+# 更新 [Clash Premium 内核](https://github.com/Dreamacro/clash/releases/tag/premium)、[mihomo 内核](https://github.com/MetaCubeX/mihomo)、[sing-box 内核](https://github.com/SagerNet/sing-box)、[sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)、Clash dashboard 面板和 [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome)
 # 一、 说明
-每天凌晨（北京时间）自动构建生成：
+每天凌晨（北京时间 UTC+8）自动构建生成：
 1. Clash Premium Release 版和 Latest 版内核（已停更）
 2. mihomo Meta 版和 Alpha 版内核
 3. sing-box Release 版和 Pre-release 版内核
 4. sing-box PuerNya 版内核（支持 `outbound_providers` 代理集合）
-5. Clash dashboard 面板：[Clash 官方面板](https://github.com/Dreamacro/clash-dashboard)、[Razord-meta 面板](https://github.com/MetaCubeX/Razord-meta)、[yacd 面板](https://github.com/haishanh/yacd)、[Yacd-meta 面板](https://github.com/MetaCubeX/Yacd-meta)和 [metacubexd 面板](https://github.com/MetaCubeX/metacubexd)
-5. AdGuardHome Release 版和 Pre-release 版
+5. Clash dashboard 面板：Clash 官方面板、[Razord-meta 面板](https://github.com/MetaCubeX/Razord-meta)、[yacd 面板](https://github.com/haishanh/yacd)、[Yacd-meta 面板](https://github.com/MetaCubeX/Yacd-meta)和 [metacubexd 面板](https://github.com/MetaCubeX/metacubexd)
+6. AdGuard Home Release 版和 Pre-release 版
 
 **注：**
 - 1. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
@@ -39,7 +39,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz | tar -zx -C /tmp/ && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择对应的内核  
-② 升级导入  
+② 升级导入（ShellCrash -> 9 更新/卸载 -> 2 切换内核文件，内核版本不会刷新）  
 连接 SSH 后执行如下命令：
 ```
 # mihomo 内核 Meta 版
@@ -67,35 +67,35 @@ curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clas
 ```
 curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz | tar -zx -C $CRASHDIR/ui/ && $CRASHDIR/start.sh restart
 ```
-## 3. 安装 AdGuardHome
-**AdGuardHome CPU 架构和链接后缀对应关系如下表：**
+## 3. 安装 AdGuard Home
+**AdGuard Home CPU 架构和链接后缀对应关系如下表：**
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-softfloat`|
 
-① 安装 AdGuardHome  
+① 安装 AdGuard Home  
 连接 SSH 后执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
-# AdGuardHome Release 版
+# AdGuard Home Release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/AdGuardHome-release/AdGuardHome_linux_armv8
-# AdGuardHome Pre-release 版
+# AdGuard Home Pre-release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 ```
-② 升级 AdGuardHome  
+② 升级 AdGuard Home  
 连接 SSH 后执行如下命令：
 ```
-# AdGuardHome Release 版
+# AdGuard Home Release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/AdGuardHome-release/AdGuardHome_linux_armv8
-# AdGuardHome Pre-release 版
+# AdGuard Home Pre-release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s restart
 ```
 # 三、 扩展（以 ShellCrash 配置定时任务为例）
-可在 ShellCrash 里添加定时更新 mihomo 内核、sing-box 内核、metacubexd 面板和 AdGuardHome 的任务
+可在 ShellCrash 里添加定时更新 mihomo 内核、sing-box 内核、metacubexd 面板和 AdGuard Home 的任务
 1. 连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴如下内容：
 注：
 - 1. 留意链接后缀是否与 CPU 架构匹配
@@ -109,4 +109,4 @@ curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.
 205#curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1#更新AdGuardHome
 ```
 2. 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-3. 执行 `crash`，进入 ShellCrash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件
+3. 执行 `crash`，进入 ShellCrash -> 5 配置自动任务 -> 1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件
