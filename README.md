@@ -24,7 +24,8 @@
 |-----|-----|-----|-----|-----|-----|:---:|-----|-----|-----|
 |**链接后缀**|`amd64`|`amd64v3`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
-① 首次导入  
+<details>
+<summary>① 首次导入</summary>
 连接 SSH 后执行如下命令：
 ```
 # mihomo 内核 Meta 版
@@ -39,7 +40,11 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz | tar -zx -C /tmp/ && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择对应的内核  
-② 升级导入（ShellCrash -> 9 更新/卸载 -> 2 切换内核文件，内核版本不会刷新）  
+</details>
+
+<details>
+<summary>② 升级导入（ShellCrash -> 9 更新/卸载 -> 2 切换内核文件，内核版本不会刷新）</summary>
+
 连接 SSH 后执行如下命令：
 ```
 # mihomo 内核 Meta 版
@@ -53,6 +58,8 @@ curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clas
 # sing-box 内核 PuerNya 版
 curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 ```
+</details>
+
 ## 2. 安装 Clash dashboard 面板（以 ShellCrash 安装 metacubexd 面板为例）
 **Clash dashboard 面板对应文件名和在线地址关系如下表：**
 |面板类型|文件名|在线地址|
@@ -73,7 +80,8 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-das
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-softfloat`|
 
-① 安装 AdGuard Home  
+<details>
+<summary>① 安装 AdGuard Home</summary>
 连接 SSH 后执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
@@ -85,7 +93,10 @@ chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 ```
-② 升级 AdGuard Home  
+</details>
+
+<details>
+<summary>② 升级 AdGuard Home</summary>
 连接 SSH 后执行如下命令：
 ```
 # AdGuard Home Release 版
@@ -94,6 +105,8 @@ curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.
 curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s restart
 ```
+</details>
+
 # 三、 扩展（以 ShellCrash 配置定时任务为例）
 可在 ShellCrash 里添加定时更新 mihomo 内核、sing-box 内核、metacubexd 面板和 AdGuard Home 的任务
 1. 连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴如下内容：
