@@ -42,7 +42,6 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择对应的内核  
 </details>
-
 <details>
 <summary>② 升级导入（ShellCrash -> 9 更新/卸载 -> 2 切换内核文件，内核版本不会刷新）</summary>
 
@@ -96,7 +95,6 @@ chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s start
 ```
 </details>
-
 <details>
 <summary>② 升级 AdGuard Home</summary>
 
